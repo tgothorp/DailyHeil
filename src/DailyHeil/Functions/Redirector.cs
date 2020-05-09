@@ -17,7 +17,7 @@ namespace DailyHeil.Functions.Functions
         }
         
         [FunctionName("Redirector")]
-        public IActionResult RunAsync([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]
+        public IActionResult RunAsync([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
             HttpRequest httpRequest)
         {
             string path = (string) httpRequest.RouteValues["path"];

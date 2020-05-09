@@ -6,7 +6,7 @@
         "methods": [ "GET" ],
         "route": "{*path}"
       },
-      "backendUri": "http://hasthedailymailmentionedhitlertoday.com/Redirector"
+      "backendUri": "https://dailyheil.azurewebsites.net/Redirector"
     }
   }
 }
