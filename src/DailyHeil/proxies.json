@@ -1,12 +1,12 @@
 ﻿{
   "$schema": "http://json.schemastore.org/proxies",
   "proxies": {
-    "HomePage": {
+    "Redirect": {
       "matchCondition": {
         "methods": [ "GET" ],
         "route": "{*path}"
       },
-      "backendUri": "https://dailyheil.azurewebsites.net/Index"
+      "backendUri": "http://hasthedailymailmentionedhitlertoday.com/Redirector"
     }
   }
 }

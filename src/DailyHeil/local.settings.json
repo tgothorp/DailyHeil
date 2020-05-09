@@ -4,6 +4,7 @@
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
     "Environment": "Development",
-    "DailyHeilConnectionString": "Data Source=localhost; Database=local-dailyheil; Trusted_Connection=True;"
+    "DailyHeilConnectionString": "Data Source=localhost; Database=local-dailyheil; Trusted_Connection=True;",
+    "Domain": "http://www.hasthedailymailmentionedhitlertoday.com"
   }
 }
