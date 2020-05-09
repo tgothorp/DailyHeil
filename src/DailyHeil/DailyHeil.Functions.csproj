@@ -35,5 +35,9 @@
       <Content Include="Content\Faq.cshtml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <None Remove="proxies.json" />
+      <Content Include="proxies.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 </Project>
