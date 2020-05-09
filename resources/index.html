@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
+<style>
+    html * {
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    body {
+        padding-bottom: 100px;
+    }
+
+    hr { 
+        border: 0; 
+        height: 1px; 
+        background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        padding-bottom: 1rem;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background-color: #efefef;
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 4vw;
+    }
+
+    .hitler {
+        text-align: center;
+        font-size: 10vw;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .hitler-summary {
+        text-align: center;
+    }
+
+    .articles {
+        text-align: center;
+    }
+
+    .footer-left {
+        width: 50%;
+        float: left;
+        text-align: left;
+    }
+
+    .footer-right {
+        width: 50%;
+        float: left;
+        text-align: right;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="This website scrapes daily mail articles to see if they have mentioned Hitler">
+    <!-- <link rel="icon" type="image/png" href="https://example.com/favicon.png"> TODO sort out a favicon-->
+    
+    <title>Has The Daily Mail Mentioned Hitler Today</title>
+    
+</head>
+
+<header>
+    <h1 class="title">Has the Daily Mail mentioned Hitler today?</h1>
+    <hr>
+</header>
+
+<body>
+    <div>
+        <h1 class="hitler">YES</h1>
+        <p class="hitler-summary">Hitler has been mentioned X times today in the following articles</p>
+    </div>
+    <div class="articles">
+        <ul>
+            <li><a href="https://www.dailymail.co.uk/news/article-8299913/Britain-marks-VE-Day-75-years-Country-prepares-lockdown-celebrations.html?ns_mchannel=rss&ito=1490&ns_campaign=1490">Britain marks VE Day 75 years on: Country prepares for lockdown celebrations</a></li>
+            <li><a href="https://www.dailymail.co.uk/news/article-8299913/Britain-marks-VE-Day-75-years-Country-prepares-lockdown-celebrations.html?ns_mchannel=rss&ito=1490&ns_campaign=1490">Britain marks VE Day 75 years on: Country prepares for lockdown celebrations</a></li>
+        </ul>
+    </div>
+</body>
+
+<footer>
+    <div class="footer-left">&copy; Tom Gothorp 2020 | Please send correspondence / legal threats <a href="mailto:example@email.com">here</a></div>
+    <div class="footer-right"><a href="#">Source Code</a> | <a href="#">FAQ</a></div>
+</footer>
+
+</html>
