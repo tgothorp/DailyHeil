@@ -38,11 +38,23 @@ namespace DailyHeil.Functions.Functions
                     .Where(x => x.PublishedDate.Date == today)
                     .ToListAsync();
 
+                var lastMention = await context.Articles
+                    .Where(x => x.MentionsHitler)
+                    .OrderByDescending(x => x.PublishedDate)
+                    .FirstOrDefaultAsync();
+
+                var lastMentionDaysAgo = 0;
+                if (lastMention != null)
+                {
+                    lastMentionDaysAgo = (today - lastMention.PublishedDate.Date).Days;
+                }
+
                 var response = new HttpResponseMessage
                 {
                     Content = new StringContent(await _razorEngine.GetWebPage(executionContext, Constants.Pages.Index, new IndexModel
                     {
-                        Articles = articlesMentioningHitler
+                        Articles = articlesMentioningHitler,
+                        PreviousMention = lastMentionDaysAgo
                     }))
                 };
 

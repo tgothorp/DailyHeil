@@ -6,5 +6,6 @@ namespace DailyHeil.Functions.Content.Models
     public class IndexModel
     {
         public List<Article> Articles { get; set; }
+        public int PreviousMention { get; set; }
     }
 }
