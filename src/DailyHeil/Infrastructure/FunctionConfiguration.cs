@@ -5,10 +5,12 @@ namespace DailyHeil.Functions.Infrastructure
     public class FunctionConfiguration
     {
         public string DatabaseConnectionString { get; set; }
+        public string HomePage { get; set; }
 
         public FunctionConfiguration()
         {
             DatabaseConnectionString = GetRequiredEnvironmentVariable("DailyHeilConnectionString");
+            HomePage = GetRequiredEnvironmentVariable("HomePageUrl");
         }
 
         private static string GetRequiredEnvironmentVariable(string key)
