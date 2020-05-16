@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model DailyHeil.Functions.Content.Models.HistoryModel;
+
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
@@ -44,14 +46,15 @@
         font-size: 4vw;
     }
 
-    .faq-container {
+    .graph-container {
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: 2rem;
     }
 
-    .faq {
+    .graph {
         width: 50%;
         height: 100%;
     }
@@ -79,7 +82,7 @@
     <meta name="description" content="This website scrapes daily mail articles to see if they have mentioned Hitler">
     <!-- <link rel="icon" type="image/png" href="https://example.com/favicon.png"> TODO sort out a favicon-->
     
-    <title>HTDMMHT | FAQ</title>
+    <title>HTDMMHT | History</title>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166002468-1"></script>
@@ -100,32 +103,9 @@
 </header>
 
 <body>
-    <div class="faq-container">
-        <div class="faq">
-            <div class="question">
-                <h3>How does this work?</h3>
-                <p>Every 10 mins the site will check the Daily Mail RSS feed for any new articles, it will then extract the article text and see if Hitler is mentioned.</p>
-            </div>
-            <div class="question">
-                <h3>Why did you do this?</h3>
-                <p>This originally started as a project to try out some <a href="https://en.wikipedia.org/wiki/Serverless_computing">Serverless Computing</a> (This whole website runs on <a href="https://azure.microsoft.com/en-gb/services/functions/">Azure Functions</a>). I know the popular joke is 'Don't mention the war' but for some reason the Daily Mail can't seem to stop mentioning the war (<a href="https://en.wikipedia.org/wiki/Daily_Mail#Support_of_fascism">can't imagine why</a>) so I thought I'd create a counter to see just how often the war is mentioned</p>
-            </div>
-            <div class="question">
-                <h3>This is pretty cool, how can I support you?</h3>
-                <p>Thanks friend! 😊 You can <a href="https://ko-fi.com/tomgothorp">buy me a coffee</a> if you wish</p>
-            </div>
-            <div class="question">
-                <h3>Will you do this for other 'news' websites?</h3>
-                <p>Maybe, unless you want to send me a <a href="https://github.com/tgothorp/DailyHeil">pull request</a></p>
-            </div>
-            <div class="question">
-                <h3>How dare you disrespect one of this countries most important institutions!</h3>
-                <p>Ahahahaha, good one!</p>
-            </div>
-            <div class="question">
-                <h3>I am a lawyer for the Dail Mail / DMG Group and want a chat</h3>
-                <p>You can reach me <a href="mailto:contact@hasthedailymailmentionedhitlertoday.com">here</a></p>
-            </div>
+    <div class="graph-container">
+        <div class="graph">
+            <canvas id="hitler-chart"></canvas>
         </div>
     </div>
 </body>
@@ -134,5 +114,45 @@
     <div class="footer-left">&copy; Tom Gothorp 2020</div>
     <div class="footer-right"><a href="/Index">Home</a> | <a href="/Faq">FAQ</a> | <a href="/History">History</a> | <a href="mailto:contact@hasthedailymailmentionedhitlertoday.com">Contact</a> | <a href="https://github.com/tgothorp/DailyHeil">Source Code</a></div>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
+<script>
+    var context = document.getElementById('hitler-chart').getContext('2d');
+    var chart = new Chart(context, {
+        type: 'line',
+        data: {
+            labels: @Model.LabelsString,
+            datasets: [
+                {
+                    label: 'Times Htiler Was Mentioned',
+                    data: @Model.DataString,
+                    backgroundColor: 'rgba(127, 191, 63, 0.9)',
+                    borderColor: 'rgba(1, 1, 1, 1)',
+                    showLine: true
+                }
+            ]
+        },
+        options: {
+            legend: {
+                display: true
+            },
+            elements: {
+                line: {
+                    tension: 0 // disables bezier curves
+                }
+            },
+             scales: {
+                 xAxes: [{
+                     display: true
+                 }],
+                 yAxes: [{
+                     display: true,
+                     stacked: false,
+                     beginAtZero: true
+                 }]
+             }
+        }
+    });
+</script>
 
 </html>

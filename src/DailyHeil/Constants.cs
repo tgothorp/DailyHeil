@@ -11,13 +11,15 @@ namespace DailyHeil.Functions
         public static Dictionary<Pages, string> Templates = new Dictionary<Pages, string>
         {
             {Pages.Index, "Index.cshtml"},
-            {Pages.Faq, "Faq.cshtml"}
+            {Pages.Faq, "Faq.cshtml"},
+            {Pages.History, "History.cshtml"}
         };
         
         public enum Pages
         {
             Index,
             Faq,
+            History,
         }
     }
 }

@@ -36,5 +36,9 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <None Remove="proxies.json" />
+      <None Remove="Content\History.cshtml" />
+      <Content Include="Content\History.cshtml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 </Project>
