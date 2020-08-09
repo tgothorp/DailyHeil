@@ -24,6 +24,9 @@
         </None>
     </ItemGroup>
     <ItemGroup>
+      <Content Include="Content\Overview.cshtml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Content Include="local.settings.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>

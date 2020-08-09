@@ -12,7 +12,8 @@ namespace DailyHeil.Functions
         {
             {Pages.Index, "Index.cshtml"},
             {Pages.Faq, "Faq.cshtml"},
-            {Pages.History, "History.cshtml"}
+            {Pages.History, "History.cshtml"},
+            {Pages.Overview, "Overview.cshtml"}
         };
         
         public enum Pages
@@ -20,6 +21,7 @@ namespace DailyHeil.Functions
             Index,
             Faq,
             History,
+            Overview,
         }
     }
 }

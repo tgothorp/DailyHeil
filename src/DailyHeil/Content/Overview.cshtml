@@ -1,4 +1,4 @@
-﻿@model DailyHeil.Functions.Content.Models.HistoryModel;
+﻿@model DailyHeil.Functions.Content.Models.OverviewModel;
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -46,19 +46,6 @@
         font-size: 4vw;
     }
 
-    .graph-container {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 2rem;
-    }
-
-    .graph {
-        width: 50%;
-        height: 100%;
-    }
-
     .question {
         padding-bottom: 0.5rem;
     }
@@ -74,6 +61,38 @@
         float: left;
         text-align: right;
     }
+    
+    .first-row-item {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+    
+    .first-row-item h3 {
+        font-size: 7.5vw;
+        margin: 0;
+    }
+    
+    .first-row-item p {
+        margin: 0;
+    }
+    
+    .second-row {
+        width: 100%;
+        text-align: center;
+        float: left;
+        padding-top: 5vw;
+    }
+    
+    .second-row-item h3 {
+        font-size: 7.5vw;
+        margin: 0;
+    }
+    
+    .second-row-item p {
+        margin: 0;
+    }
+
 </style>
 
 <head>
@@ -81,9 +100,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="This website scrapes daily mail articles to see if they have mentioned Hitler">
     <!-- <link rel="icon" type="image/png" href="https://example.com/favicon.png"> TODO sort out a favicon-->
-    
+
     <title>HTDMMHT | History</title>
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166002468-1"></script>
     <script>
@@ -94,7 +113,7 @@
       gtag('config', 'UA-166002468-1');
     </script>
 
-    
+
 </head>
 
 <header>
@@ -103,56 +122,32 @@
 </header>
 
 <body>
-    <div class="graph-container">
-        <div class="graph">
-            <canvas id="hitler-chart"></canvas>
+<div class="overview-container">
+    <div class="first-row">
+        <div class="first-row-item">
+            <h3>@Model.TotalMentions</h3>
+            <br/>
+            <p>Total mentions of Hitler since the start of the year</p>
+        </div>
+        <div class="first-row-item">
+            <h3>@Model.AverageMentions</h3>
+            <br/>
+            <p>Average mentions of Hitler per day</p>
         </div>
     </div>
+    <div class="second-row">
+        <div class="second-row-item">
+            <h3>@Model.MostMentionedCount</h3>
+            <br/>
+            <p>Most mentions of Hitler in one day</p>
+        </div>
+    </div>
+</div>
 </body>
 
 <footer>
     <div class="footer-left">&copy; Tom Gothorp 2020</div>
     <div class="footer-right"><a href="/Index">Home</a> | <a href="/Overview">Overview</a> | <a href="/Faq">FAQ</a> | <a href="/History">History</a> | <a href="mailto:contact@hasthedailymailmentionedhitlertoday.com">Contact</a> | <a href="https://github.com/tgothorp/DailyHeil">Source Code</a></div>
 </footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
-<script>
-    var context = document.getElementById('hitler-chart').getContext('2d');
-    var chart = new Chart(context, {
-        type: 'line',
-        data: {
-            labels: @Model.LabelsString,
-            datasets: [
-                {
-                    label: 'Times Htiler Was Mentioned',
-                    data: @Model.DataString,
-                    backgroundColor: 'rgba(127, 191, 63, 0.9)',
-                    borderColor: 'rgba(1, 1, 1, 1)',
-                    showLine: true
-                }
-            ]
-        },
-        options: {
-            legend: {
-                display: true
-            },
-            elements: {
-                line: {
-                    tension: 0 // disables bezier curves
-                }
-            },
-             scales: {
-                 xAxes: [{
-                     display: true
-                 }],
-                 yAxes: [{
-                     display: true,
-                     stacked: false,
-                     beginAtZero: true
-                 }]
-             }
-        }
-    });
-</script>
 
 </html>

@@ -106,12 +106,14 @@
     @if (Model.Articles.Any())
     {
         <h1 class="hitler">YES</h1>
-        <p class="hitler-summary">Hitler has been mentioned @Model.Articles.Count times today in the following articles</p>
+        <p class="hitler-summary">Hitler has been mentioned @Model.Articles.Count times today in the following articles.</p>
+        <p class="hitler-summary">You can see an overview for the year <a href="/Overview">here.</a></p>
     }
     else
     {
         <h1 class="hitler">NO</h1>
-        <p class="hitler-summary">But there is still time, He was last mentioned @Model.PreviousMention day(s) ago</p>
+        <p class="hitler-summary">But there is still time, He was last mentioned @Model.PreviousMention day(s) ago.</p>
+        <p class="hitler-summary">You can see an overview for the year <a href="/Overview">here.</a></p>
     }
     </div>
     <div class="articles">
@@ -126,7 +128,7 @@
 
 <footer>
     <div class="footer-left">&copy; Tom Gothorp 2020</div>
-    <div class="footer-right"><a href="/Index">Home</a> | <a href="/Faq">FAQ</a> | <a href="/History">History</a> | <a href="mailto:contact@hasthedailymailmentionedhitlertoday.com">Contact</a> | <a href="https://github.com/tgothorp/DailyHeil">Source Code</a></div>
+    <div class="footer-right"><a href="/Index">Home</a> | <a href="/Overview">Overview</a> | <a href="/Faq">FAQ</a> | <a href="/History">History</a> | <a href="mailto:contact@hasthedailymailmentionedhitlertoday.com">Contact</a> | <a href="https://github.com/tgothorp/DailyHeil">Source Code</a></div>
 </footer>
 
 </html>
